@@ -5,6 +5,9 @@ import person1 from "@/public/images/person1.jpg"
 import person2 from "@/public/images/person2.jpg"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef } from "react";
+import Hero from "@/components/hero";
+import Navbar from "@/components/navbar";
+import MainImage from "@/components/main-image";
 
 export default function Home() {
   const wrapper = useRef(null);
@@ -26,7 +29,7 @@ export default function Home() {
 
   return (
     <>
-    <div ref={wrapper} className="overflow-hidden bg-white w-full h-screen font-[family-name:var(--font-poppins)] relative flex justify-center items-center">
+    {/* <div ref={wrapper} className="overflow-hidden bg-white w-full h-screen font-[family-name:var(--font-poppins)] relative flex justify-center items-center">
       <motion.h1 
         className="text-9xl text-black font-extrabold"
         style={{
@@ -65,7 +68,12 @@ export default function Home() {
         Hello world
       </motion.h1>
 
-    </div>
+    </div> */}
+    <main className="relative bg-[#f0eff1]">
+      <Navbar />
+      <Hero />
+      <MainImage />
+    </main>
     </>
   );
 }
