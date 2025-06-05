@@ -8,6 +8,8 @@ import { useRef } from "react";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import MainImage from "@/components/main-image";
+import IconsSection from "@/components/icons-section";
+import ProjectShowcase from "@/components/project-showcase";
 
 export default function Home() {
   const wrapper = useRef(null);
@@ -73,6 +75,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <MainImage />
+      <IconsSection />
+      <ProjectShowcase />
     </main>
     </>
   );
