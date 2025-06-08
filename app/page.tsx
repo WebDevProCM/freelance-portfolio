@@ -3,31 +3,19 @@
 import Image from "next/image";
 import person1 from "@/public/images/person1.jpg"
 import person2 from "@/public/images/person2.jpg"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef } from "react";
+import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
+import { useEffect, useRef, useState } from "react";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
 import MainImage from "@/components/main-image";
 import IconsSection from "@/components/icons-section";
 import ProjectShowcase from "@/components/project-showcase";
+import WorkWithMe from "@/components/work-with-me";
+import ContactMe from "@/components/contact-me";
+import LoadingAnimation from "@/components/loader";
 
 export default function Home() {
-  const wrapper = useRef(null);
-  const {scrollYProgress} = useScroll({
-    target: wrapper,
-    offset: ["start end", "end start"]
-  });
-  const textY = useTransform(scrollYProgress, [0, 1], ["350%", "-350%"]);
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["-80%", "80%"]);
-
-  const wrapper2 = useRef(null);
-  const {scrollYProgress: scrollYProgress2} = useScroll({
-    target: wrapper2,
-    offset: ["start end", "end start"]
-  });
-
-  const text2Y = useTransform(scrollYProgress2, [0, 1], ["350%", "-350%"]);
-  const background2Y = useTransform(scrollYProgress2, [0, 1], ["-80%", "80%"]);
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
@@ -71,13 +59,25 @@ export default function Home() {
       </motion.h1>
 
     </div> */}
-    <main className="relative bg-[#f0eff1]">
-      <Navbar />
-      <Hero />
-      <MainImage />
-      <IconsSection />
-      <ProjectShowcase />
-    </main>
+    <motion.main className={`${loading && "h-screen overflow-hidden"} relative bg-[#f0eff1]`}>
+      <AnimatePresence mode="sync">
+        {loading ? (
+          <motion.div>
+            <LoadingAnimation setLoading={setLoading} />
+          </motion.div>
+        ):
+        <>
+        <Navbar />
+        <Hero />
+        <MainImage isloading={loading} />
+        <IconsSection />
+        <ProjectShowcase />
+        <WorkWithMe />
+        </>        
+        }      
+        <ContactMe />
+      </AnimatePresence>       
+    </motion.main>
     </>
   );
 }

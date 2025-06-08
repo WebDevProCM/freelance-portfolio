@@ -18,16 +18,24 @@ import MagneticHover from './animations/magnetic-hover';
 
 const IconsSection = () => {
     const iconsArray = [
+      [
         <TbBrandJavascript size={120} key={4} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
         <SiTypescript size={85} key={10} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
+      ],
+      [
         <FaReact size={100} key={1} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
         <RiNextjsFill size={120} key={9} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
         <FaNodeJs size={100} key={7} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
+      ],
+      [
         <SiExpress size={110} key={8} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
         <DiMongodb size={100} key={2} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
+      ],
+      [
         <SiMysql size={110} key={3} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
         <RiTailwindCssFill size={100} color='black' key={6} className='md:mx-[40px] mx-[20px] my-[40px]'/>,
-        <FaBootstrap size={110} key={5} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
+        <FaBootstrap size={110} key={5} color='black' className='md:mx-[40px] mx-[20px] my-[40px]'/>
+      ]
     ];
 
     const [screenSize, setScreenSize] = useState<boolean>(true);
@@ -57,37 +65,34 @@ const IconsSection = () => {
     }
 
   return (
-    <>
-
-      <div 
-        className='relative overflow-hidden flex flex-row flex-wrap justify-center items-center max-w-[1400px] mt-[200px] mx-auto lg:px-12 md:px-5 px-1'>
-        <div className="w-full absolute inset-0 h-full">
-            
-        </div>
-        <motion.div
-          className='w-full flex flex-wrap justify-center items-center'
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{once: true}}
-        >
-          {iconsArray.map((icon, i) =>{
-            return(
-              <motion.div
-              className='relative z-20'
-              key={i}
-              variants={iconAnimations}
-              viewport={{once: true}}
-              transition={{duration: 0.8}}
-              >
-                <MagneticHover>{icon}</MagneticHover>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-      </div>
-
-    </>
+    <div 
+      className='overflow-x-hidden w-full flex flex-row flex-wrap justify-center items-center mt-[200px] mx-auto'>
+      <motion.div
+        className='w-[200vw] flex flex-col flex-wrap justify-center items-center'
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{once: true}}
+      >
+        {iconsArray.map((icons, i) =>(
+          <div key={i} className='relative w-full flex flex-wrap justify-around items-center z-20'>
+            {icons.map((icon, index) => {
+              return(
+                <motion.div
+                className='relative z-20'
+                key={index+i}
+                variants={iconAnimations}
+                viewport={{once: true}}
+                transition={{duration: 0.8}}
+                >
+                  <MagneticHover>{icon}</MagneticHover>
+                </motion.div>
+              )
+            })}
+          </div>
+        ))}
+      </motion.div>
+    </div>
   )
 }
 

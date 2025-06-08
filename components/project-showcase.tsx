@@ -29,12 +29,17 @@ const imageStyles6 = {
 
 const ProjectShowcase = () => {
     const projectRef = useRef(null)
-    const {scrollYProgress} = useScroll({target: projectRef, offset: ["start end", "end end"]});
+    const {scrollYProgress} = useScroll({target: projectRef, offset: ["start end", "start start"]});
     const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2])
+    const {scrollYProgress: scrollYRotatingCards} = useScroll({target: projectRef, offset: ["start start", "end end"]});
+    const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "300%"])
 
   return (
-    <div className='banner relative w-full h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
-        <div className='slider absolute w-[107px] h-[239px] top-[80%] left-[calc(50%-100px)]' style={itemStyles}>
+    <div className='banner relative w-full h-[calc(100vh+100vh)] text-center overflow-hidden mt-[200px]' ref={projectRef}>
+        <motion.div 
+            className='slider absolute w-[107px] h-[239px] top-[60%] left-[calc(50%-100px)]' 
+            style={itemStyles}
+        >
             <div className='absolute item' style={imageStyles1}>
                 <Image 
                     // style={imageStyles1}
@@ -46,7 +51,7 @@ const ProjectShowcase = () => {
                     className='w-full h-full'
                 />
             </div>
-            <div className='absolute item' style={imageStyles2}>
+            {/* <div className='absolute item' style={imageStyles2}>
                 <Image 
                     // style={imageStyles2}
                     src="/images/e-commerce.png"
@@ -56,7 +61,7 @@ const ProjectShowcase = () => {
                     objectFit='cover' 
                     className='w-full h-full rotate-90'
                 />
-            </div>
+            </div> */}
             <div className='absolute item' style={imageStyles3}>
                 <Image 
                     // style={imageStyles3}
@@ -68,7 +73,7 @@ const ProjectShowcase = () => {
                     className='w-full h-full'
                 />
             </div>
-            <div className='absolute item' style={imageStyles4}>
+            {/* <div className='absolute item' style={imageStyles4}>
                 <Image 
                     // style={imageStyles4}
                     src="/images/meal-app.png"
@@ -78,7 +83,7 @@ const ProjectShowcase = () => {
                     objectFit='cover' 
                     className='w-full h-full rotate-90'
                 />
-            </div>
+            </div> */}
             <div className='absolute item' style={imageStyles5}>
                 <Image 
                     // style={imageStyles4}
@@ -90,7 +95,7 @@ const ProjectShowcase = () => {
                     className='w-full h-full'
                 />
             </div>
-            <div className='absolute item' style={imageStyles6}>
+            {/* <div className='absolute item' style={imageStyles6}>
                 <Image 
                     // style={imageStyles4}
                     src="/images/portfolio.png"
@@ -100,13 +105,13 @@ const ProjectShowcase = () => {
                     objectFit='cover' 
                     className='w-full h-full rotate-90'
                 />
-            </div>
-        </div>
+            </div> */}
+        </motion.div>
 
         <div className='absolute top-0'>
             <motion.h1 
                 className='font-popin font-extrabold text-8xl text-black'
-                style={{scale: scaleText}}
+                style={{scale: scaleText, y: moveTextDown}}
             >
                 Interactive Project Showcase
             </motion.h1>
