@@ -13,6 +13,7 @@ import ProjectShowcase from "@/components/project-showcase";
 import WorkWithMe from "@/components/work-with-me";
 import ContactMe from "@/components/contact-me";
 import LoadingAnimation from "@/components/loader";
+import ProjectModel from "@/components/project-model";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

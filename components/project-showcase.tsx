@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useRef } from 'react'
 import {motion, useScroll, useTransform} from "framer-motion";
+import ProjectModel from './project-model';
 
 
 const itemStyles = {
@@ -30,17 +31,19 @@ const imageStyles6 = {
 const ProjectShowcase = () => {
     const projectRef = useRef(null)
     const {scrollYProgress} = useScroll({target: projectRef, offset: ["start end", "start start"]});
-    const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2])
+    const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2]);
     const {scrollYProgress: scrollYRotatingCards} = useScroll({target: projectRef, offset: ["start start", "end end"]});
-    const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "300%"])
+    const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "300%"]);
+    const [projectModalOpen, setProjectModalOpen] = useState({open:false, image: ""});
 
   return (
+    <>
     <div className='banner relative w-full h-[calc(100vh+100vh)] text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
-            className='slider absolute w-[107px] h-[239px] top-[60%] left-[calc(50%-100px)]' 
+            className='slider absolute w-[127px] h-[259px] top-[60%] left-[calc(50%-100px)]' 
             style={itemStyles}
         >
-            <div className='absolute item' style={imageStyles1}>
+            <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
                 <Image 
                     // style={imageStyles1}
                     src="/images/e-commerce.png"
@@ -49,8 +52,9 @@ const ProjectShowcase = () => {
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "e-commerce"})}
                 />
-            </div>
+            </motion.div>
             {/* <div className='absolute item' style={imageStyles2}>
                 <Image 
                     // style={imageStyles2}
@@ -62,7 +66,7 @@ const ProjectShowcase = () => {
                     className='w-full h-full rotate-90'
                 />
             </div> */}
-            <div className='absolute item' style={imageStyles3}>
+            <motion.div className='absolute item' style={imageStyles3} layoutId='meal-app'>
                 <Image 
                     // style={imageStyles3}
                     src="/images/meal-app.png"
@@ -71,8 +75,9 @@ const ProjectShowcase = () => {
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "meal-app"})}
                 />
-            </div>
+            </motion.div>
             {/* <div className='absolute item' style={imageStyles4}>
                 <Image 
                     // style={imageStyles4}
@@ -84,7 +89,7 @@ const ProjectShowcase = () => {
                     className='w-full h-full rotate-90'
                 />
             </div> */}
-            <div className='absolute item' style={imageStyles5}>
+            <motion.div className={`absolute item ${!projectModalOpen.open && "transform-3d"}`} style={imageStyles5} layoutId='portfolio'>
                 <Image 
                     // style={imageStyles4}
                     src="/images/portfolio.png"
@@ -93,8 +98,9 @@ const ProjectShowcase = () => {
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "portfolio"})}
                 />
-            </div>
+            </motion.div>
             {/* <div className='absolute item' style={imageStyles6}>
                 <Image 
                     // style={imageStyles4}
@@ -116,7 +122,10 @@ const ProjectShowcase = () => {
                 Interactive Project Showcase
             </motion.h1>
         </div>
+
+        {projectModalOpen.open && <ProjectModel close={setProjectModalOpen} image={projectModalOpen.image}/>}
     </div>
+    </>
   )
 }
 
