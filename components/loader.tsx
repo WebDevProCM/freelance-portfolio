@@ -40,6 +40,13 @@ const itemMain = {
       type: "spring",
       duration: 1.6,
     },
+  exit: {
+    opacity: 0,
+    transition: {
+      ease: "easeInOut",
+      duration: 0.8,
+    },
+  },
   },
 };
 
@@ -63,7 +70,6 @@ const LoadingAnimation = ({ setLoading } : {setLoading:Dispatch<SetStateAction<b
         </motion.div>
         <SmallImage variants={item} id="image-3" name="portfolio" />
         <SmallImage variants={item} id="image-4" name="meal-app" />
-        {/* <SmallImage variants={item} id="image-5" name="e-commerce" /> */}
       </motion.div>
     </motion.div>
   );

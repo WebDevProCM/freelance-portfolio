@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useRef } from 'react'
 import {motion, useScroll, useTransform} from "framer-motion";
 import ProjectModel from './project-model';
+import useMobile from '@/hooks/use-mobile';
 
 
 const itemStyles = {
@@ -29,7 +30,9 @@ const imageStyles6 = {
 } as React.CSSProperties & Record<string, string | number>;
 
 const ProjectShowcase = () => {
-    const projectRef = useRef(null)
+    const projectRef = useRef(null);
+    const isMobile = useMobile(768);
+
     const {scrollYProgress} = useScroll({target: projectRef, offset: ["start end", "start start"]});
     const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2]);
     const {scrollYProgress: scrollYRotatingCards} = useScroll({target: projectRef, offset: ["start start", "end end"]});
@@ -38,9 +41,9 @@ const ProjectShowcase = () => {
 
   return (
     <>
-    <div className='banner relative w-full h-[calc(100vh+100vh)] text-center overflow-hidden mt-[200px]' ref={projectRef}>
+    <div className='banner relative w-full sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
-            className='slider absolute w-[127px] h-[259px] top-[60%] left-[calc(50%-100px)]' 
+            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] top-[60%] left-[calc(50%-100px)]' 
             style={itemStyles}
         >
             <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
@@ -116,8 +119,8 @@ const ProjectShowcase = () => {
 
         <div className='absolute top-0'>
             <motion.h1 
-                className='font-popin font-extrabold text-8xl text-black'
-                style={{scale: scaleText, y: moveTextDown}}
+                className='font-popin font-extrabold lg:text-8xl sm:text-7xl text-6xl text-black'
+                style={{scale:scaleText, y: isMobile ? "" : moveTextDown}}
             >
                 Interactive Project Showcase
             </motion.h1>

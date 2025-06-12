@@ -32,10 +32,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='relative w-full overflow-x-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] text-[150px] text-black font-bold flex flex-col leading-48'>
-        <section className='relative px-14'>
+    <div className='relative w-full overflow-x-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] lg:text-[150px] 
+      md:text-9xl sm:text-7xl text-5xl text-black font-bold flex flex-col sm:gap-0 gap-6 lg:leading-48'>
+        <section className='relative lg:px-14 md:px-7 sm:px-4 px-2'>
           <h1><AnimatedLetters title='CHAMOD' align='start'/></h1>
-          <p className='text-sm max-w-3xs absolute right-[18%] top-[30%]'>
+          <p className='lg:text-sm text-[10px] sm:max-w-3xs max-w-40 absolute sm:right-[18%] right-[0%] sm:top-[30%] top-[10%]'>
             Driven and adaptable developer with hands-on experience delivering responsive, high-quality web interfaces
           </p>
         </section>
@@ -54,11 +55,12 @@ const Hero = () => {
             </motion.div>
           </div>
         </section>
-        <section className='relative text-center z-20 px-14'>
+        <section className='relative text-center z-20 lg:px-14 md:px-7 sm:px-4 px-2'>
           {/* <h1>UDUGAMA</h1> */}
           <h1><AnimatedLetters title='UDUGAMA' align='end'/></h1>
 
-          <div className='absolute left-[8%] bottom-[8%] flex justify-center items-center rounded-full size-[168px] text-sm bg-[#fff]'>
+          <div className='absolute left-[8%] sm:bottom-[8%] bottom-[-80%] flex justify-center items-center rounded-full 
+            lg:size-[168px] md:size-36 sm:size-32 size-28 text-sm bg-[#fff]'>
             Scroll Down
           </div>
         </section>

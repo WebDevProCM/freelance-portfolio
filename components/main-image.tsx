@@ -3,37 +3,42 @@ import mountain from "@/public/images/mountains.webp"
 import Image from 'next/image'
 import ServiceCard from './ui components/service-card'
 import {motion, useScroll, useTransform} from "framer-motion"
+import useMobile from '@/hooks/use-mobile'
 
 const MainImage = ({isloading}: {isloading:boolean}) => {
-    const divRef = useRef(null)
+  const divRef = useRef(null)
+  const isMobile = useMobile(768);
+
     const {scrollYProgress} = useScroll({target: divRef, offset: ["start end", "start start"]});
-    const divWidth = useTransform(scrollYProgress, [0, 1], ["90%", "100%"]);
+    const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "50%" : "90%", "100%"]);
     const divMargin = useTransform(scrollYProgress, [0, 1], ["-4%", "-15%"]);
     const divZindex = useTransform(scrollYProgress, [0, 0.3], [15, 20]);
     const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
     const serviceCardPos = useTransform(serviceCard, [0, 1], ["0%", "180%"]);
     const MainDivPos = useTransform(serviceCard, [0, 1], ["150%", "-100%"]);
 
+
   return (
     !isloading ?
     <motion.div 
-      className='relative overflow-hidden pt-[7%] h-[calc(100vh+(100vh/2))] bg-top bg-[#f0eff1] text-center bg-[url(/images/mountains.webp)] mx-auto'
+      className='relative overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-screen bg-top bg-[#f0eff1] 
+        text-center bg-[url(/images/mountains.webp)] mx-auto'
       style={{
         width: divWidth,
-        marginTop: divMargin,
-        zIndex: divZindex,
+        marginTop: isMobile ? "" : divMargin,
+        zIndex: isMobile ? 20 : divZindex,
         backgroundSize: "150%",
         backgroundPositionY: MainDivPos
       }}
-      // layout
-      transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1.6 }}
+      layout
+      transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
       layoutId='main-image-1'
       ref={divRef}
     >
-      <h1 className='text-8xl font-popin font-extrabold'>My Services</h1>
+      <h1 className='sm:text-8xl text-5xl font-popin font-extrabold'>My Services</h1>
 
       <motion.div 
-        className='flex justify-around items-center flex-wrap mt-16'
+        className='flex justify-around items-center gap-3 flex-wrap mt-16'
         style={{
           y: serviceCardPos
         }}

@@ -61,7 +61,7 @@ export default function Home() {
 
     </div> */}
     <motion.main className={`${loading && "h-screen overflow-hidden"} relative bg-[#f0eff1]`}>
-      <AnimatePresence mode="sync">
+      <AnimatePresence mode="wait">
         {loading ? (
           <motion.div>
             <LoadingAnimation setLoading={setLoading} />
