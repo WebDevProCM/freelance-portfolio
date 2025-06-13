@@ -9,7 +9,7 @@ const ServiceCard = ({img, title, desc}:{img:string, title:string, desc:string})
           className='lg:size-[150px] md:size-[130px] sm:size-[110px] size-[50px]'
           src={`/images/${img}.png`} alt='service-icon' width={150} height={150}/>
         <h1 className='lg:text-5xl md:text-4xl sm:text-3xl text-xl font-popin font-extrabold text-blue-950'>{title}</h1>
-        <p className='sm:text-md text-xs text-shadow-white'>
+        <p className='sm:text-lg text-xs text-shadow-white'>
             {desc}
         </p>
     </div>

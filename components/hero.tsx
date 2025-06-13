@@ -32,11 +32,11 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className='relative w-full overflow-x-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] lg:text-[150px] 
-      md:text-9xl sm:text-7xl text-5xl text-black font-bold flex flex-col sm:gap-0 gap-6 lg:leading-48'>
+    <div className='relative max-w-[1600px] mx-auto w-full overflow-x-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] 
+      xl:text-[150px] lg:text-9xl md:text-7xl sm:text-6xl text-5xl text-black font-bold flex flex-col sm:gap-0 gap-6 lg:leading-48'>
         <section className='relative lg:px-14 md:px-7 sm:px-4 px-2'>
           <h1><AnimatedLetters title='CHAMOD' align='start'/></h1>
-          <p className='lg:text-sm text-[10px] sm:max-w-3xs max-w-40 absolute sm:right-[18%] right-[0%] sm:top-[30%] top-[10%]'>
+          <p className='lg:text-sm text-[10px] sm:max-w-3xs max-w-32 absolute sm:right-[18%] right-[8%] sm:top-[30%] top-[10%]'>
             Driven and adaptable developer with hands-on experience delivering responsive, high-quality web interfaces
           </p>
         </section>
@@ -70,6 +70,7 @@ const Hero = () => {
 
 const AnimatedLetters = ({ title, align, disabled }:{title:string, align?:string, disabled?:boolean}) => (
   <motion.span
+    key={title}
     className={`flex justify-${align}`}
     variants={disabled ? undefined : banner}
     initial='initial'

@@ -21,8 +21,8 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
   return (
     !isloading ?
     <motion.div 
-      className='relative overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-screen bg-top bg-[#f0eff1] 
-        text-center bg-[url(/images/mountains.webp)] mx-auto'
+      className='relative max-w-[1600px] mx-auto overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-screen bg-top bg-[#f0eff1] 
+        text-center bg-[url(/images/mountains.webp)]'
       style={{
         width: divWidth,
         marginTop: isMobile ? "" : divMargin,

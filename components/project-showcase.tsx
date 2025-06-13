@@ -7,7 +7,7 @@ import useMobile from '@/hooks/use-mobile';
 
 
 const itemStyles = {
-"--quantity": 6,
+"--quantity": 3,
 } as React.CSSProperties & Record<string, string | number>;
 
 const imageStyles1 = {
@@ -41,9 +41,9 @@ const ProjectShowcase = () => {
 
   return (
     <>
-    <div className='banner relative w-full sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
+    <div className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
-            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] top-[60%] left-[calc(50%-100px)]' 
+            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] left-[calc(50%-100px)]' 
             style={itemStyles}
         >
             <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
@@ -119,7 +119,7 @@ const ProjectShowcase = () => {
 
         <div className='absolute top-0'>
             <motion.h1 
-                className='font-popin font-extrabold lg:text-8xl sm:text-7xl text-6xl text-black'
+                className='font-popin font-extrabold lg:text-8xl text-7xl text-black'
                 style={{scale:scaleText, y: isMobile ? "" : moveTextDown}}
             >
                 Interactive Project Showcase

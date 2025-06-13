@@ -14,10 +14,10 @@ const WorkWithMe = () => {
 
   return (
     <motion.div className='text-center px-5 bg-black h-full overflow-hidden'>
-        <h1 className='font-popin font-extrabold text-8xl text-white py-16 opacity-30'>Why work with me?</h1>
-        <motion.div ref={divRef} className="relative h-[calc(100vh+100vh)]">
+        <h1 className='font-popin font-extrabold lg:text-8xl md:text-7xl sm:text-6xl text-5xl text-white py-16 opacity-30'>Why work with me?</h1>
+        <motion.div ref={divRef} className="max-w-[1600px] mx-auto relative h-[calc(100vh+100vh)]">
             <motion.div
-                className='absolute font-popin font-extrabold text-6xl text-white w-full flex flex-col justify-center items-center gap-14 h-screen'
+                className='absolute font-popin font-extrabold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-white w-full flex flex-col justify-center items-center gap-14 h-screen'
                 transition={{ease:"linear"}}
                 style={{top:moveDiv, willChange:"transform"}}
             >
