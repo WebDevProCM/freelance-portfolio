@@ -59,14 +59,15 @@ const LoadingAnimation = ({ setLoading } : {setLoading:Dispatch<SetStateAction<b
         initial="hidden"
         animate="show"
         exit="exit"
-        className="loader-inner"
       >
         <SmallImage variants={item} id="image-1" name="e-commerce" />
-        <motion.div variants={itemMain} className="transition-image">
-          <motion.img
-            layoutId="main-image-1"
-            src={`/images/mountains.webp`}
-          />
+        <SmallImage variants={item} id="image-2" name="chat" />
+        <motion.div variants={itemMain} className="absolute top-0 left-0 h-screen w-screen flex justify-center items-center">
+        <motion.img
+          className="w-[800px] flex"
+          layoutId="main-image-1"
+          src={`/images/mountains.webp`}
+        />
         </motion.div>
         <SmallImage variants={item} id="image-3" name="portfolio" />
         <SmallImage variants={item} id="image-4" name="meal-app" />

@@ -3,7 +3,7 @@ import React from 'react'
 
 const ServiceCard = ({img, title, desc}:{img:string, title:string, desc:string}) => {
   return (
-    <div className='flex flex-col items-center justify-center w-full lg:max-w-80 p-4 sm:max-w-72 max-w-48 
+    <div className='flex flex-col items-center justify-center max-w-64 lg:max-w-80 p-4 sm:max-w-72
       bg-white/20 backdrop-blur-md border border-white/30 shadow-lg rounded-xl'>
         <Image 
           className='lg:size-[150px] md:size-[130px] sm:size-[110px] size-[50px]'

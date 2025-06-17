@@ -7,7 +7,7 @@ import useMobile from '@/hooks/use-mobile';
 
 
 const itemStyles = {
-"--quantity": 3,
+"--quantity": 6,
 } as React.CSSProperties & Record<string, string | number>;
 
 const imageStyles1 = {
@@ -37,13 +37,13 @@ const ProjectShowcase = () => {
     const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2]);
     const {scrollYProgress: scrollYRotatingCards} = useScroll({target: projectRef, offset: ["start start", "end end"]});
     const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "300%"]);
-    const [projectModalOpen, setProjectModalOpen] = useState({open:false, image: ""});
+    const [projectModalOpen, setProjectModalOpen] = useState({open:false, image: "", live:"", github:""});
 
   return (
     <>
-    <div className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
+    <motion.div className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
-            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] left-[calc(50%-100px)]' 
+            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] sm:left-[calc(50%-100px)] left-[calc(50%-40px)]' 
             style={itemStyles}
         >
             <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
@@ -55,21 +55,10 @@ const ProjectShowcase = () => {
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
-                    onClick={() => setProjectModalOpen({open:true, image: "e-commerce"})}
+                    onClick={() => setProjectModalOpen({open:true, image: "e-commerce", live:"https://e-commerce-frontend-hmet.onrender.com/", github: "https://github.com/WebDevProCM/E-commerce-FrontEnd"})}
                 />
             </motion.div>
-            {/* <div className='absolute item' style={imageStyles2}>
-                <Image 
-                    // style={imageStyles2}
-                    src="/images/e-commerce.png"
-                    width={200} 
-                    height={200} 
-                    alt='project-image' 
-                    objectFit='cover' 
-                    className='w-full h-full rotate-90'
-                />
-            </div> */}
-            <motion.div className='absolute item' style={imageStyles3} layoutId='meal-app'>
+            <motion.div className='absolute item' style={imageStyles2} layoutId='meal-app'>
                 <Image 
                     // style={imageStyles3}
                     src="/images/meal-app.png"
@@ -78,56 +67,70 @@ const ProjectShowcase = () => {
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
-                    onClick={() => setProjectModalOpen({open:true, image: "meal-app"})}
+                    onClick={() => setProjectModalOpen({open:true, image: "meal-app", live: "https://nextgenrecipes.netlify.app", github: "https://github.com/WebDevProCM/Meals-App"})}
                 />
             </motion.div>
-            {/* <div className='absolute item' style={imageStyles4}>
+            <motion.div className='absolute item' style={imageStyles3} layoutId='chat'>
                 <Image 
                     // style={imageStyles4}
-                    src="/images/meal-app.png"
-                    width={200} 
-                    height={200} 
-                    alt='project-image' 
-                    objectFit='cover' 
-                    className='w-full h-full rotate-90'
-                />
-            </div> */}
-            <motion.div className={`absolute item ${!projectModalOpen.open && "transform-3d"}`} style={imageStyles5} layoutId='portfolio'>
-                <Image 
-                    // style={imageStyles4}
-                    src="/images/portfolio.png"
+                    src="/images/chat.png"
                     width={200} 
                     height={200} 
                     alt='project-image' 
                     objectFit='cover' 
                     className='w-full h-full'
-                    onClick={() => setProjectModalOpen({open:true, image: "portfolio"})}
+                    onClick={() => setProjectModalOpen({open:true, image: "chat", live: "https://github.com/WebDevProCM/chat-app-frontend", github:"https://github.com/WebDevProCM/chat-app-frontend"})}
                 />
             </motion.div>
-            {/* <div className='absolute item' style={imageStyles6}>
+            <motion.div className='absolute item' style={imageStyles4} layoutId='e-commerce1'>
                 <Image 
-                    // style={imageStyles4}
-                    src="/images/portfolio.png"
+                    // style={imageStyles1}
+                    src="/images/e-commerce.png"
                     width={200} 
                     height={200} 
                     alt='project-image' 
                     objectFit='cover' 
-                    className='w-full h-full rotate-90'
+                    className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "e-commerce", live:"https://e-commerce-frontend-hmet.onrender.com/", github: "https://github.com/WebDevProCM/E-commerce-FrontEnd"})}
                 />
-            </div> */}
+            </motion.div>
+            <motion.div className='absolute item' style={imageStyles5} layoutId='meal-app2'>
+                <Image 
+                    // style={imageStyles3}
+                    src="/images/meal-app.png"
+                    width={200} 
+                    height={200} 
+                    alt='project-image' 
+                    objectFit='cover' 
+                    className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "meal-app", live: "https://nextgenrecipes.netlify.app", github: "https://github.com/WebDevProCM/Meals-App"})}
+                />
+            </motion.div>
+            <motion.div className='absolute item' style={imageStyles6} layoutId='chat3'>
+                <Image 
+                    // style={imageStyles4}
+                    src="/images/chat.png"
+                    width={200} 
+                    height={200} 
+                    alt='project-image' 
+                    objectFit='cover' 
+                    className='w-full h-full'
+                    onClick={() => setProjectModalOpen({open:true, image: "chat", live: "https://github.com/WebDevProCM/chat-app-frontend", github:"https://github.com/WebDevProCM/chat-app-frontend"})}
+                />
+            </motion.div>
         </motion.div>
 
         <div className='absolute top-0'>
             <motion.h1 
-                className='font-popin font-extrabold lg:text-8xl text-7xl text-black'
+                className='font-popin font-extrabold lg:text-8xl text-6xl text-black'
                 style={{scale:scaleText, y: isMobile ? "" : moveTextDown}}
             >
                 Interactive Project Showcase
             </motion.h1>
         </div>
 
-        {projectModalOpen.open && <ProjectModel close={setProjectModalOpen} image={projectModalOpen.image}/>}
-    </div>
+        {projectModalOpen.open && <ProjectModel live={projectModalOpen.live} github={projectModalOpen.github} close={setProjectModalOpen} image={projectModalOpen.image}/>}
+    </motion.div>
     </>
   )
 }

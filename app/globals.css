@@ -28,16 +28,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-.background {
-  transform: translateZ(-10px) scale(2);
-}
-
-.trees {
-  transform: translateZ(-5px) scale(1.5);
-}
-
-
 .slider{
   transform-style: preserve-3d;
   transform: perspective(1000px);
@@ -57,6 +47,40 @@ body {
 }
 
 
+@media screen and (max-width: 1024) {
+  .slider{
+    transform: perspective(500px);
+  }
+
+  @keyframes autoRun{
+    from{
+      transform: perspective(500px) rotateX(0deg) rotateY(0deg);
+    }to{
+      transform: perspective(500px) rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .item{
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(225px)!important;
+  }
+}
+
+@media screen and (max-width: 640) {
+  .slider{
+    transform: perspective(200px);
+  }
+
+  @keyframes autoRun{
+    from{
+      transform: perspective(250px) rotateX(0deg) rotateY(0deg);
+    }to{
+      transform: perspective(250px) rotateX(0deg) rotateY(360deg);
+    }
+  }
+  .item{
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(130px)!important;
+  }
+}
+
 .image-1 {
   width: 400px;
   left: 16%;
@@ -73,28 +97,11 @@ body {
   right: 20%;
   bottom: 10%;
 }
-.image-5 {
+.image-2 {
   width: 280px;
   left: 14%;
   top: 12%;
 }
-
-.transition-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.transition-image img {
-  width: 800px;
-  display: flex;
-}
-
 
 .marquee {
   position: relative;
@@ -110,19 +117,7 @@ body {
   transform: translate3d(var(--move-initial), 0, 0);
   animation: marquee 20s linear infinite;
   animation-play-state: paused;
-  /* @media (min-width: $layout-breakpoint-large) {
-    transform: translate3d(calc(-25% + 10vw), 0, 0);
-    animation: marquee-lg 5s linear infinite;
-    animation-play-state: paused;
-  } */
 }
-  /* .row-title {
-    padding: 0 8vw;
-    @media (min-width: $layout-breakpoint-large) {
-      padding: 0 10vw;
-    }
-  }
-} */
 
 @keyframes marquee {
   0% {
@@ -131,15 +126,5 @@ body {
 
   100% {
     transform: translate3d(var(--move-final), 0, 0);
-  }
-}
-
-@keyframes marquee-lg {
-  0% {
-    transform: translate3d(calc(-25% + 10vw), 0, 0);
-  }
-
-  100% {
-    transform: translate3d(calc(-50% + 10vw), 0, 0);
   }
 }

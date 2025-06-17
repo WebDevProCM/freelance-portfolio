@@ -20,15 +20,15 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
   return (
     !isloading ?
-    <motion.div 
-      className='relative max-w-[1600px] mx-auto overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-screen bg-top bg-[#f0eff1] 
+    <motion.div
+      className='relative max-w-[1600px] mx-auto overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
         text-center bg-[url(/images/mountains.webp)]'
       style={{
         width: divWidth,
         marginTop: isMobile ? "" : divMargin,
         zIndex: isMobile ? 20 : divZindex,
         backgroundSize: "150%",
-        backgroundPositionY: MainDivPos
+        backgroundPositionY: isMobile ? "" : MainDivPos
       }}
       layout
       transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
@@ -37,10 +37,11 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
     >
       <h1 className='sm:text-8xl text-5xl font-popin font-extrabold'>My Services</h1>
 
-      <motion.div 
-        className='flex justify-around items-center gap-3 flex-wrap mt-16'
+      <motion.div
+        layout
+        className='flex sm:flex-row flex-col sm:justify-around justify-center items-center gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
         style={{
-          y: serviceCardPos
+          y: isMobile ? "0%" : serviceCardPos,
         }}
       >
         <ServiceCard img='frontend' title='Frontend' desc='craft modern, responsive, and visually appealing user interfaces using technologies like React.js, Next.js, and Tailwind CSS. I ensure that every website looks great and performs smoothly on all devices.'/>
