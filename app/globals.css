@@ -64,6 +64,27 @@ body {
   }
 }
 
+.image-1 {
+  width: 400px;
+  left: 16%;
+  bottom: 14%;
+}
+.image-3 {
+  width: 300px;
+  right: 12%;
+  top: 8%;
+}
+.image-4 {
+  width: 40%;
+  right: 20%;
+  bottom: 10%;
+}
+.image-2 {
+  width: 280px;
+  left: 14%;
+  top: 12%;
+}
+
 @media screen and (max-width: 640) {
   .slider{
     transform: perspective(200px);
@@ -79,28 +100,18 @@ body {
   .item{
     transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(130px)!important;
   }
-}
 
 .image-1 {
-  width: 400px;
-  left: 16%;
-  bottom: 14%;
-}
+  width: 200px;
 .image-3 {
-  width: 300px;
-  right: 12%;
-  top: 8%;
+  width: 150px;
 }
 .image-4 {
-  max-width: 400px;
-  width: 40%;
-  right: 20%;
-  bottom: 10%;
+  width: 20%;
 }
 .image-2 {
-  width: 280px;
-  left: 14%;
-  top: 12%;
+  width: 140px;
+}
 }
 
 .marquee {

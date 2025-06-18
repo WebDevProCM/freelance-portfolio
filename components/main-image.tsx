@@ -21,13 +21,13 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
   return (
     !isloading ?
     <motion.div
-      className='relative max-w-[1600px] mx-auto overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
-        text-center bg-[url(/images/mountains.webp)]'
+      className='relative max-w-[1600px] mx-auto lg:mt-[-4%] mt-[0%] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
+        text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover'
       style={{
         width: divWidth,
-        marginTop: isMobile ? "" : divMargin,
+        // marginTop: isMobile ? "" : divMargin,
         zIndex: isMobile ? 20 : divZindex,
-        backgroundSize: "150%",
+        backgroundSize: isMobile ? "auto%" : "150%",
         backgroundPositionY: isMobile ? "" : MainDivPos
       }}
       layout
@@ -39,7 +39,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
       <motion.div
         layout
-        className='flex sm:flex-row flex-col sm:justify-around justify-center items-center gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
+        className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-center gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
         style={{
           y: isMobile ? "0%" : serviceCardPos,
         }}

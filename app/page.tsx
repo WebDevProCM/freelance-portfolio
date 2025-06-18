@@ -19,47 +19,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <>
-    {/* <div ref={wrapper} className="overflow-hidden bg-white w-full h-screen font-[family-name:var(--font-poppins)] relative flex justify-center items-center">
-      <motion.h1 
-        className="text-9xl text-black font-extrabold"
-        style={{
-          translateY: textY
-        }}
-      >
-        Hello world
-      </motion.h1>
-
-      <motion.img 
-        src="/images/person1.jpg" 
-        className="w-[500px] h-[700px]" 
-        alt="person1"
-        style={{
-          translateY: backgroundY
-        }}
-      />
-    </div>
-
-    <div ref={wrapper2} className="overflow-hidden bg-gray-50 w-full h-screen relative flex justify-center items-center">
-      <motion.img 
-        src="/images/person2.jpg" 
-        className="w-[500px] h-[600px]" 
-        alt="person1"
-        style={{
-          translateY: background2Y
-        }}
-      />
-      
-      <motion.h1 
-        className="text-9xl text-black font-extrabold"
-        style={{
-          translateY: text2Y
-        }}
-      >
-        Hello world
-      </motion.h1>
-
-    </div> */}
     <motion.main className={`${loading && "h-screen overflow-hidden"} relative bg-[#f0eff1]`}>
       <AnimatePresence mode="wait">
         {loading ? (
@@ -79,6 +38,5 @@ export default function Home() {
         <ContactMe />
       </AnimatePresence>       
     </motion.main>
-    </>
   );
 }

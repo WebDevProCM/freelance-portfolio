@@ -123,7 +123,7 @@ const ProjectShowcase = () => {
         <div className='absolute top-0'>
             <motion.h1 
                 className='font-popin font-extrabold lg:text-8xl text-6xl text-black'
-                style={{scale:scaleText, y: isMobile ? "" : moveTextDown}}
+                style={{scale:scaleText, y: isMobile ? "0%" : moveTextDown}}
             >
                 Interactive Project Showcase
             </motion.h1>

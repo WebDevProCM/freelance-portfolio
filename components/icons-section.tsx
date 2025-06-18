@@ -75,6 +75,15 @@ const IconsSection = () => {
       setPositions({x: (middleX*-1)/3, y: (middleY*-1)/3})
     }
 
+    const onTouchHandler = (e: React.TouchEvent<HTMLDivElement>) => {
+      const {clientX, clientY} = e.touches[0];
+      const {top, left, height, width} = ref.current?.getBoundingClientRect()!;
+      const middleX = clientX - (left + width/2);
+      const middleY = clientY - (top + height/2);
+      console.log("X: ", middleX, "Y: ", middleY);
+      setPositions({x: middleX/4, y: middleY/4})
+    }
+
   return (
     <motion.div 
       className='overflow-hidden w-full flex flex-row flex-wrap justify-center items-center pt-[200px] mx-auto'
@@ -91,6 +100,7 @@ const IconsSection = () => {
           y: postions.y
         }}
         onMouseMove={onMouseOverHandler}
+        onTouchMove={onTouchHandler}
         // onMouseLeave={() => setPositions({x:0, y:0})}
         ref={ref}
         variants={container}
