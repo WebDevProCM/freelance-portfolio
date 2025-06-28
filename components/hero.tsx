@@ -32,14 +32,15 @@ const Hero = () => {
   }, []);
 
   return (
+    //  xl:text-[150px] lg:text-9xl md:text-7xl sm:text-6xl text-5xl
     <div className='relative max-w-[1600px] mx-auto w-full overflow-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] 
-      xl:text-[150px] lg:text-9xl md:text-7xl sm:text-6xl text-5xl text-black font-bold flex flex-col sm:gap-10
+      text-[clamp(3rem,10vw,150px)] text-black font-bold flex flex-col sm:gap-10
       md:gap-6 gap-6  lg:leading-48'>
         <section className='relative lg:px-14 md:px-7 sm:px-4 px-2'>
           <h1><AnimatedLetters title='CHAMOD' align='start'/></h1>
           
           <motion.p 
-            className='lg:text-sm text-[10px] sm:max-w-3xs max-w-32 absolute sm:right-[18%] right-[8%] sm:top-[30%] top-[10%]'
+            className='lg:text-sm text-[10px] sm:max-w-3xs max-w-32 absolute right-[8%] sm:top-[30%] top-[10%]'
             initial={{
               opacity: 0
             }}
@@ -56,7 +57,6 @@ const Hero = () => {
         </section>
 
         <section className='text-center'>
-          {/* <h1>full-stack developer</h1> */}
           <div className={`${playMarquee && "animate"}`}>
             <motion.div
               initial={{ y: 310 }}
@@ -72,11 +72,10 @@ const Hero = () => {
         </section>
         
         <section className='relative text-center z-20 lg:px-14 md:px-7 sm:px-4 px-2 h-full'>
-          {/* <h1>UDUGAMA</h1> */}
           <h1><AnimatedLetters title='UDUGAMA' align='end'/></h1>
 
           <motion.div 
-            className='absolute left-[8%] lg:bottom-[8%] md:bottom-[-100%] sm:bottom-[-120%] bottom-[-80%] flex justify-center items-center rounded-full 
+            className='absolute left-[8%] bottom-[-30%] flex justify-center items-center rounded-full 
             lg:size-[168px] md:size-36 sm:size-32 size-24 text-sm bg-[#fff]'
             initial={{
               scale: 0,

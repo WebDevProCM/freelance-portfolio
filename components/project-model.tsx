@@ -14,7 +14,7 @@ const ProjectModel = ({image, close, github, live}
   
   return (
       <motion.div 
-        className='fixed top-0 bottom-0 right-0 left-0 bg-white/20 backdrop-blur-sm p-8 rounded-lg overflow-hidden'
+        className='fixed z-30 top-0 bottom-0 right-0 left-0 bg-white/20 backdrop-blur-sm p-8 rounded-lg overflow-hidden'
         initial={{
           opacity: 0
         }}

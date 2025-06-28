@@ -34,16 +34,16 @@ const ProjectShowcase = () => {
     const isMobile = useMobile(768);
 
     const {scrollYProgress} = useScroll({target: projectRef, offset: ["start end", "start start"]});
-    const scaleText = useTransform(scrollYProgress, [0, 1], [0.5,1.2]);
+    const scaleText = useTransform(scrollYProgress, [0,0.7, 1], [0.5,1.2, 0.7]);
     const {scrollYProgress: scrollYRotatingCards} = useScroll({target: projectRef, offset: ["start start", "end end"]});
-    const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "300%"]);
+    const moveTextDown = useTransform(scrollYRotatingCards, [0, 0.8], ["0%", "450%"]);
     const [projectModalOpen, setProjectModalOpen] = useState({open:false, image: "", live:"", github:""});
 
   return (
     <>
     <motion.div className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
-            className='slider absolute sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] sm:left-[calc(50%-100px)] left-[calc(50%-40px)]' 
+            className='slider absolute z-20 sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] sm:left-[calc(50%-100px)] left-[calc(50%-40px)]' 
             style={itemStyles}
         >
             <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
@@ -120,7 +120,7 @@ const ProjectShowcase = () => {
             </motion.div>
         </motion.div>
 
-        <div className='absolute top-0'>
+        <div className='absolute z-10 top-0'>
             <motion.h1 
                 className='font-popin font-extrabold lg:text-8xl text-6xl text-black'
                 style={{scale:scaleText, y: isMobile ? "0%" : moveTextDown}}

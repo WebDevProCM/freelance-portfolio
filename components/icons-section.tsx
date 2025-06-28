@@ -13,7 +13,6 @@ import { SiTypescript } from "react-icons/si";
 import { DiMongodb } from "react-icons/di";
 import { SiMysql } from "react-icons/si";
 import MagneticHover from './animations/magnetic-hover';
-// import Particles from './ui/particles';
 
 
 const IconsSection = () => {
@@ -71,7 +70,6 @@ const IconsSection = () => {
       const {top, left, height, width} = ref.current?.getBoundingClientRect()!;
       const middleX = clientX - (left + width/2);
       const middleY = clientY - (top + height/2);
-      console.log("X: ", middleX, "Y: ", middleY);
       setPositions({x: (middleX*-1)/3, y: (middleY*-1)/3})
     }
 
@@ -80,7 +78,6 @@ const IconsSection = () => {
       const {top, left, height, width} = ref.current?.getBoundingClientRect()!;
       const middleX = clientX - (left + width/2);
       const middleY = clientY - (top + height/2);
-      console.log("X: ", middleX, "Y: ", middleY);
       setPositions({x: middleX/4, y: middleY/4})
     }
 
@@ -101,6 +98,7 @@ const IconsSection = () => {
         }}
         onMouseMove={onMouseOverHandler}
         onTouchMove={onTouchHandler}
+        onTouchEnd={() => setPositions({x:0, y:0})}
         // onMouseLeave={() => setPositions({x:0, y:0})}
         ref={ref}
         variants={container}

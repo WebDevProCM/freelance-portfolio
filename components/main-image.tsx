@@ -6,11 +6,11 @@ import {motion, useScroll, useTransform} from "framer-motion"
 import useMobile from '@/hooks/use-mobile'
 
 const MainImage = ({isloading}: {isloading:boolean}) => {
-  const divRef = useRef(null)
+  const divRef = useRef(null);
   const isMobile = useMobile(768);
 
     const {scrollYProgress} = useScroll({target: divRef, offset: ["start end", "start start"]});
-    const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "50%" : "90%", "100%"]);
+    const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "70%" : "90%", "100%"]);
     const divMargin = useTransform(scrollYProgress, [0, 1], ["-4%", "-15%"]);
     const divZindex = useTransform(scrollYProgress, [0, 0.3], [15, 20]);
     const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
@@ -20,13 +20,14 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
   return (
     !isloading ?
+    // lg:mt-[-4%] mt-[0%]
     <motion.div
-      className='relative max-w-[1600px] mx-auto lg:mt-[-4%] mt-[0%] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
+      className='relative max-w-[1600px] mx-auto mt-[-1vw] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
         text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover'
       style={{
         width: divWidth,
         // marginTop: isMobile ? "" : divMargin,
-        zIndex: isMobile ? 20 : divZindex,
+        zIndex: 20,
         backgroundSize: isMobile ? "auto%" : "150%",
         backgroundPositionY: isMobile ? "" : MainDivPos
       }}
@@ -35,7 +36,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
       layoutId='main-image-1'
       ref={divRef}
     >
-      <h1 className='sm:text-8xl text-5xl font-popin font-extrabold'>My Services</h1>
+      <h1 className='lg:text-9xl md:text-7xl sm:text-6xl text-5xl font-popin font-extrabold'>My Services</h1>
 
       <motion.div
         layout
