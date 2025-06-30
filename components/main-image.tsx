@@ -48,7 +48,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
         <ServiceCard img='frontend' title='Frontend' desc='craft modern, responsive, and visually appealing user interfaces using technologies like React.js, Next.js, and Tailwind CSS. I ensure that every website looks great and performs smoothly on all devices.'/>
         <ServiceCard img='api' title='Backend' desc='I build powerful and secure server-side applications using Node.js and Express. I handle everything from routing to authentication, ensuring your website works flawlessly behind the scenes.'/>
         <ServiceCard img='database' title='Database' desc='I design and manage efficient, scalable databases using MongoDB and MySQL. I ensure your data is stored securely and accessed quickly for optimal performance.'/>
-        <ServiceCard img='api' title='Animations' desc='I bring websites to life with smooth animations using Framer Motion and CSS. From subtle transitions to interactive elements, I create engaging experiences that leave a lasting impression.'/>
+        <ServiceCard img='animation' title='Animations' desc='I bring websites to life with smooth animations using Framer Motion and CSS. From subtle transitions to interactive elements, I create engaging experiences that leave a lasting impression.'/>
       </motion.div>
     </motion.div>
     :

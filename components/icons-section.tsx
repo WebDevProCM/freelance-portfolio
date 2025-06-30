@@ -99,7 +99,6 @@ const IconsSection = () => {
         onMouseMove={onMouseOverHandler}
         onTouchMove={onTouchHandler}
         onTouchEnd={() => setPositions({x:0, y:0})}
-        // onMouseLeave={() => setPositions({x:0, y:0})}
         ref={ref}
         variants={container}
         initial="hidden"

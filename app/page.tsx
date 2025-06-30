@@ -11,12 +11,13 @@ import WorkWithMe from "@/components/work-with-me";
 import ContactMe from "@/components/contact-me";
 import LoadingAnimation from "@/components/animations/loader";
 import LenisScrollProvider from "@/components/lenis";
+import { LetsWorkNavIcon } from "@/components/lets-work-nav-icon";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <motion.main className={`${loading && "h-screen overflow-hidden"} relative bg-[#f0eff1]`}>
+    <motion.main className={`${loading && "h-screen"} relative bg-[#f0eff1] overflow-hidden`}>
       <LenisScrollProvider>
       <AnimatePresence mode="wait">
         {loading ? (
@@ -25,6 +26,7 @@ export default function Home() {
           </motion.div>
         ):
         <>
+        <LetsWorkNavIcon />
         <Navbar />
         <Hero />
         <MainImage isloading={loading} />
