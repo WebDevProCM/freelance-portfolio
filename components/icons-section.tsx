@@ -83,6 +83,7 @@ const IconsSection = () => {
 
   return (
     <motion.div 
+      id='stack'
       className='overflow-hidden w-full flex flex-row flex-wrap justify-center items-center pt-[200px] mx-auto'
       style={{
         backgroundColor: `rgba(0, 0, 0, 1)`

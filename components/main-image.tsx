@@ -22,6 +22,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
     !isloading ?
     // lg:mt-[-4%] mt-[0%]
     <motion.div
+      id='services'
       className='relative max-w-[1600px] mx-auto mt-[-1vw] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
         text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover'
       style={{

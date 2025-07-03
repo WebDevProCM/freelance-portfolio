@@ -2,10 +2,15 @@
 
 import React, { useRef, useState } from 'react'
 import {motion} from "framer-motion";
+import Link from 'next/link';
+import useMobile from '@/hooks/use-mobile';
+import MobileNavbar from './mobile-navbar';
 
 export const LetsWorkNavIcon = () => {
     const ref = useRef<HTMLDivElement>(null);
     const [position, setPosition] = useState({x:0, y:0});
+    const isMobile = useMobile(800);
+    const [showNavbar, setShowNavbar] = useState(false);
 
     const mouseOverHandler = (e: React.MouseEvent<HTMLDivElement>)=>{
         const {clientX, clientY} = e;
@@ -20,7 +25,7 @@ export const LetsWorkNavIcon = () => {
     setPosition({x:0, y:0});
     }
   return (
-    <div className='relative w-[clamp(300px,100vw,1600px)] mx-auto'>
+    <div className='relative cursor-pointer'>
         <motion.div
         className='absolute right-[2%] top-2 z-30'
         onMouseOver={mouseOverHandler}
@@ -30,11 +35,17 @@ export const LetsWorkNavIcon = () => {
         whileHover={{color: "#CBACF9"}}
         transition={{type: "spring", stiffness: 40, damping: 15, mass: 0.5}}
         >
-            <h4 className='md:text-sm text-[9px] md:size-26 size-18 rounded-full text-wrap flex justify-center items-center 
-                shadow-lg text-black text-center text'>
-                Lets Work together
-            </h4>
+        
+
+        <Link 
+        href={!isMobile ? '#contact' : ''}
+        onClick={isMobile ? () => setShowNavbar(prev => !prev) : undefined}
+        className='md:text-sm text-[9px] md:size-26 size-18 rounded-full text-wrap flex justify-center items-center 
+            shadow-lg text-black text-center text'>
+            Lets Work together
+        </Link>
         </motion.div>
+        {showNavbar && <MobileNavbar />}
     </div>
   )
 }

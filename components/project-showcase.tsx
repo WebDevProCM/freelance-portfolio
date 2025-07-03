@@ -41,7 +41,9 @@ const ProjectShowcase = () => {
 
   return (
     <>
-    <motion.div className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
+    <motion.div 
+        id='project'
+        className='banner mx-auto relative sm:max-w-[1600px] sm:h-[calc(100vh+100vh)] h-screen text-center overflow-hidden mt-[200px]' ref={projectRef}>
         <motion.div 
             className='slider absolute z-20 sm:w-[127px] w-[63px] sm:h-[259px] h-[130px] sm:top-[60%] top-[50%] sm:left-[calc(50%-100px)] left-[calc(50%-40px)]' 
             style={itemStyles}
