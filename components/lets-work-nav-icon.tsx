@@ -25,9 +25,9 @@ export const LetsWorkNavIcon = () => {
     setPosition({x:0, y:0});
     }
   return (
-    <div className='relative cursor-pointer'>
+    <>
         <motion.div
-        className='absolute right-[2%] top-2 z-30'
+        className='fixed right-[2%] top-2 z-50'
         onMouseOver={mouseOverHandler}
         onMouseLeave={reset}
         ref={ref}
@@ -40,12 +40,14 @@ export const LetsWorkNavIcon = () => {
         <Link 
         href={!isMobile ? '#contact' : ''}
         onClick={isMobile ? () => setShowNavbar(prev => !prev) : undefined}
-        className='md:text-sm text-[9px] md:size-26 size-18 rounded-full text-wrap flex justify-center items-center 
-            shadow-lg text-black text-center text'>
+        className='md:text-sm text-[9px] md:size-26 size-18 rounded-full text-wrap flex justify-center items-center font-extrabold text-transparent 
+            shadow-lg text-center bg-white/10 backdrop-blur-sm bg-clip-text bg-linear-to-bl from-violet-500 to-fuchsia-500
+            text-shadow-sm
+            '>
             Lets Work together
         </Link>
         </motion.div>
         {showNavbar && <MobileNavbar />}
-    </div>
+    </>
   )
 }

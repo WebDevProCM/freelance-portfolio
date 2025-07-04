@@ -15,6 +15,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
     const divZindex = useTransform(scrollYProgress, [0, 0.3], [15, 20]);
     const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
     const serviceCardPos = useTransform(serviceCard, [0, 1], ["0%", "180%"]);
+    const mobileServiceCardPos = useTransform(serviceCard, [0, 1], ["0%", "60%"]);
     const MainDivPos = useTransform(serviceCard, [0, 1], ["150%", "-100%"]);
 
 
@@ -28,7 +29,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
       style={{
         width: divWidth,
         // marginTop: isMobile ? "" : divMargin,
-        zIndex: 20,
+        zIndex: 30,
         backgroundSize: isMobile ? "auto%" : "150%",
         backgroundPositionY: isMobile ? "" : MainDivPos
       }}
@@ -41,9 +42,9 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
       <motion.div
         layout
-        className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-center gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
+        className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-stretch gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
         style={{
-          y: isMobile ? "0%" : serviceCardPos,
+          y: isMobile ? mobileServiceCardPos : serviceCardPos,
         }}
       >
         <ServiceCard img='frontend' title='Frontend' desc='craft modern, responsive, and visually appealing user interfaces using technologies like React.js, Next.js, and Tailwind CSS. I ensure that every website looks great and performs smoothly on all devices.'/>

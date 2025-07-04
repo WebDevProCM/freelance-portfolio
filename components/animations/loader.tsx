@@ -52,7 +52,7 @@ const itemMain = {
 
 const LoadingAnimation = ({ setLoading } : {setLoading:Dispatch<SetStateAction<boolean>>}) => {
   return (
-    <motion.div className="overflow-hidden h-screen max-w-[1600px] mx-auto">
+    <motion.div className="overflow-hidden h-screen max-w-[1600px] w-full mx-auto">
       <motion.div
         variants={container}
         onAnimationComplete={() => setLoading(false)}
@@ -62,7 +62,7 @@ const LoadingAnimation = ({ setLoading } : {setLoading:Dispatch<SetStateAction<b
       >
         <SmallImage variants={item} id="image-1" name="e-commerce" />
         <SmallImage variants={item} id="image-2" name="chat" />
-        <motion.div variants={itemMain} className="absolute top-0 left-0 h-screen w-screen flex justify-center items-center">
+        <motion.div variants={itemMain} className="absolute top-0 left-0 h-screen w-full flex justify-center items-center">
         <motion.img
           className="w-[800px] flex"
           layoutId="main-image-1"

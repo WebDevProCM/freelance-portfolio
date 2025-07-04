@@ -78,7 +78,7 @@ const IconsSection = () => {
       const {top, left, height, width} = ref.current?.getBoundingClientRect()!;
       const middleX = clientX - (left + width/2);
       const middleY = clientY - (top + height/2);
-      setPositions({x: middleX/4, y: middleY/4})
+      setPositions({x: middleX/6, y: middleY/6})
     }
 
   return (

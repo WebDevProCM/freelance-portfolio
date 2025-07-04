@@ -34,8 +34,7 @@ const Hero = () => {
   return (
     //  xl:text-[150px] lg:text-9xl md:text-7xl sm:text-6xl text-5xl
     <div className='relative max-w-[1600px] mx-auto w-full overflow-hidden bg-[#f0eff1] font-[family-name:var(--font-poppins)] 
-      text-[clamp(3rem,10vw,150px)] text-black font-bold flex flex-col sm:gap-10
-      md:gap-6 gap-6  lg:leading-48'>
+      text-[clamp(3rem,10vw,150px)] text-black font-bold flex flex-col sm:gap-10 md:gap-6 gap-6 lg:leading-48'>
         <section className='relative lg:px-14 md:px-7 sm:px-4 px-2'>
           <h1><AnimatedLetters title='CHAMOD' align='start'/></h1>
           
@@ -75,7 +74,7 @@ const Hero = () => {
           <h1><AnimatedLetters title='UDUGAMA' align='end'/></h1>
 
           <motion.div 
-            className='absolute left-[8%] bottom-[-30%] flex justify-center items-center rounded-full 
+            className='absolute z-20 left-[8%] bottom-[-30%] content-center rounded-full 
             lg:size-[168px] md:size-36 sm:size-32 size-24 text-sm bg-[#fff]'
             initial={{
               scale: 0,

@@ -17,7 +17,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
-    <motion.main className={`${loading && "h-screen"} relative bg-[#f0eff1] overflow-hidden`}>
+    <motion.main className={`${loading && "h-screen"} relative bg-[#f0eff1]`}>
       <LenisScrollProvider>
       <AnimatePresence mode="wait">
         {loading ? (
@@ -33,9 +33,9 @@ export default function Home() {
         <IconsSection />
         <ProjectShowcase />
         <WorkWithMe />
+        <ContactMe />
         </>        
         }      
-        <ContactMe />
       </AnimatePresence>       
       </LenisScrollProvider>
     </motion.main>

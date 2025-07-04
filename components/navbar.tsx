@@ -8,8 +8,8 @@ const Navbar = () => {
 
   return (
     <nav id='nav' className='relative lg:w-[clamp(500px,88vw,1375px)] w-[80vw] flex justify-between items-center bg-[#f0eff1] text-black font-[family-name:var(--font-poppins)] 
-      font-semibold lg:px-16 md:px-8 sm:px-4 px-2 md:py-10 py-6 pb-16 text-center mr-auto 2xl:mx-auto shrink'>
-        <h3 className='lg:text-4xl md:text-2xl sm:text-1xl text-xl sm:max-w-1/4 font-extrabold'>
+      font-semibold lg:pr-16 md:pr-8 px-4 md:py-10 py-6 pb-16 text-center mr-auto 2xl:mx-auto shrink'>
+        <h3 className='lg:text-4xl text-2xl sm:max-w-1/4 font-extrabold'>
           <Link href='#nav'>WebDev</Link>
         </h3>
         {!isMobile &&         
@@ -18,7 +18,7 @@ const Navbar = () => {
             whileHover={{opacity: 0.7, scale: 1.1}}
             transition={{type:'spring'}}
           >
-            <Link href='#services'>My Services</Link>
+            <Link href='#services' scroll={true}>My Services</Link>
           </motion.li>
           <motion.li
             whileHover={{ opacity: 0.7 ,scale: 1.1}}
