@@ -51,6 +51,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles1} layoutId='e-commerce'>
                 <Image 
                     // style={imageStyles1}
+                    priority
                     src="/images/e-commerce.png"
                     width={200} 
                     height={200} 
@@ -63,6 +64,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles2} layoutId='meal-app'>
                 <Image 
                     // style={imageStyles3}
+                    priority
                     src="/images/meal-app.png"
                     width={200} 
                     height={200} 
@@ -75,6 +77,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles3} layoutId='chat'>
                 <Image 
                     // style={imageStyles4}
+                    priority
                     src="/images/chat.png"
                     width={200} 
                     height={200} 
@@ -87,6 +90,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles4} layoutId='e-commerce1'>
                 <Image 
                     // style={imageStyles1}
+                    priority
                     src="/images/e-commerce.png"
                     width={200} 
                     height={200} 
@@ -99,6 +103,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles5} layoutId='meal-app2'>
                 <Image 
                     // style={imageStyles3}
+                    priority
                     src="/images/meal-app.png"
                     width={200} 
                     height={200} 
@@ -111,6 +116,7 @@ const ProjectShowcase = () => {
             <motion.div className='absolute item' style={imageStyles6} layoutId='chat3'>
                 <Image 
                     // style={imageStyles4}
+                    priority
                     src="/images/chat.png"
                     width={200} 
                     height={200} 

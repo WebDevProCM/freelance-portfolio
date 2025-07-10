@@ -41,13 +41,16 @@ const Hero = () => {
           <motion.p 
             className='lg:text-sm text-[10px] sm:max-w-3xs max-w-32 absolute right-[8%] sm:top-[30%] top-[10%]'
             initial={{
-              opacity: 0
+              opacity: 0,
+              transform: 'scaleX(40%)'
             }}
             animate={{
-              opacity: 1
+              opacity: 1,
+              transformOrigin: 'left center',
+              transform: 'scaleX(100%)'
             }}
             transition={{
-              duration: 1,
+              duration: 2,
               type: "spring"
             }}
           >
@@ -77,12 +80,12 @@ const Hero = () => {
             className='absolute z-20 left-[8%] bottom-[-30%] content-center rounded-full 
             lg:size-[168px] md:size-36 sm:size-32 size-24 text-sm bg-[#fff]'
             initial={{
-              scale: 0,
-              opacity: 0
+              opacity: 0,
+              transform: 'translateY(20%)'
             }}
             animate={{
-              scale: 1,
-              opacity: 1
+              opacity: 1,
+              transform: 'translateY(0%)'
             }}
             transition={{
               duration: 2,

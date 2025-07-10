@@ -1,6 +1,4 @@
 import React, { useRef } from 'react'
-import mountain from "@/public/images/mountains.webp"
-import Image from 'next/image'
 import ServiceCard from './ui components/service-card'
 import {motion, useScroll, useTransform} from "framer-motion"
 import useMobile from '@/hooks/use-mobile'
@@ -11,8 +9,6 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
     const {scrollYProgress} = useScroll({target: divRef, offset: ["start end", "start start"]});
     const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "70%" : "90%", "100%"]);
-    const divMargin = useTransform(scrollYProgress, [0, 1], ["-4%", "-15%"]);
-    const divZindex = useTransform(scrollYProgress, [0, 0.3], [15, 20]);
     const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
     const serviceCardPos = useTransform(serviceCard, [0, 1], ["0%", "180%"]);
     const mobileServiceCardPos = useTransform(serviceCard, [0, 1], ["0%", "60%"]);
@@ -21,14 +17,12 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
 
   return (
     !isloading ?
-    // lg:mt-[-4%] mt-[0%]
     <motion.div
       id='services'
       className='relative max-w-[1600px] mx-auto mt-[-1vw] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
         text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover'
       style={{
         width: divWidth,
-        // marginTop: isMobile ? "" : divMargin,
         zIndex: 30,
         backgroundSize: isMobile ? "auto%" : "150%",
         backgroundPositionY: isMobile ? "" : MainDivPos

@@ -98,7 +98,7 @@ const IconsSection = () => {
           y: postions.y
         }}
         onMouseMove={onMouseOverHandler}
-        onTouchMove={onTouchHandler}
+        onTouchStartCapture={onTouchHandler}
         onTouchEnd={() => setPositions({x:0, y:0})}
         ref={ref}
         variants={container}

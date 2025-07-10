@@ -1,6 +1,7 @@
 "use client"
 
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
+// import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "motion/react"
 import { useState } from "react";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
@@ -17,9 +18,9 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   return (
+    <AnimatePresence>
     <motion.main className={`${loading && "h-screen"} relative bg-[#f0eff1]`}>
       <LenisScrollProvider>
-      <AnimatePresence mode="wait">
         {loading ? (
           <motion.div>
             <LoadingAnimation setLoading={setLoading} />
@@ -36,8 +37,8 @@ export default function Home() {
         <ContactMe />
         </>        
         }      
-      </AnimatePresence>       
       </LenisScrollProvider>
     </motion.main>
+    </AnimatePresence>       
   );
 }
