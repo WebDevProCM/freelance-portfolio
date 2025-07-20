@@ -7,12 +7,15 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
   const divRef = useRef(null);
   const isMobile = useMobile(768);
 
-    const {scrollYProgress} = useScroll({target: divRef, offset: ["start end", "start start"]});
-    const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "70%" : "90%", "100%"]);
-    const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
-    const serviceCardPos = useTransform(serviceCard, [0, 1], ["0%", "180%"]);
-    const mobileServiceCardPos = useTransform(serviceCard, [0, 1], ["0%", "60%"]);
-    const MainDivPos = useTransform(serviceCard, [0, 1], ["150%", "-100%"]);
+  const {scrollYProgress} = useScroll({target: divRef, offset: ["start end", "start start"]});
+  const {scrollYProgress:serviceCard} = useScroll({target: divRef, offset: ["start start", "end start"]});
+
+  const divWidth = useTransform(scrollYProgress, [0, 1], [isMobile ? "70%" : "90%", "100%"]);
+  const serviceCardPos = useTransform(serviceCard, [0, 1], ["0%", "140%"]);
+  const mobileServiceCardPos = useTransform(serviceCard, [0, 1], ["0%", "60%"]);
+  // const MainDivPos = useTransform(serviceCard, [0, 1], ["150%", "-100%"]);
+
+  const servicesCardsAnimation = isMobile ? mobileServiceCardPos : serviceCardPos;
 
 
   return (
@@ -20,25 +23,28 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
     <motion.div
       id='services'
       className='relative max-w-[1600px] mx-auto mt-[-1vw] overflow-hidden pt-[7%] sm:h-[calc(100vh+(100vh/2))] h-full bg-top bg-[#f0eff1] 
-        text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover'
+        text-center bg-[url(/images/mountains.webp)] sm:bg-auto bg-cover bg-fixed'
       style={{
         width: divWidth,
         zIndex: 30,
         backgroundSize: isMobile ? "auto%" : "150%",
-        backgroundPositionY: isMobile ? "" : MainDivPos
+        // backgroundPositionY: isMobile ? "" : MainDivPos
       }}
       layout
       transition={{ ease: [0.6, 0.01, -0.05, 0.9], duration: 1 }}
       layoutId='main-image-1'
       ref={divRef}
     >
-      <h1 className='lg:text-9xl md:text-7xl sm:text-6xl text-5xl font-popin font-extrabold'>My Services</h1>
+      <h1 className='lg:text-9xl md:text-7xl sm:text-6xl text-5xl font-popin font-extrabold text-shadow-lg shadow-black'>
+        My Services
+      </h1>
 
       <motion.div
         layout
-        className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-stretch gap-3 flex-wrap sm:mt-16 sm:mb:0 my-8'
+        className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-stretch gap-3 flex-wrap sm:mt-16 
+          sm:mb:0 my-8'
         style={{
-          y: isMobile ? mobileServiceCardPos : serviceCardPos,
+          y: servicesCardsAnimation,
         }}
       >
         <ServiceCard img='frontend' title='Frontend' desc='craft modern, responsive, and visually appealing user interfaces using technologies like React.js, Next.js, and Tailwind CSS. I ensure that every website looks great and performs smoothly on all devices.'/>

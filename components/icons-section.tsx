@@ -16,6 +16,7 @@ import MagneticHover from './animations/magnetic-hover';
 
 
 const IconsSection = () => {
+    //array of icons
     const iconsArray = [
       [
         <TbBrandJavascript size={180} key={4} color='white' className='md:mx-[40px] mx-[20px] my-[40px]'/>,
@@ -37,21 +38,11 @@ const IconsSection = () => {
       ]
     ];
 
-    const [screenSize, setScreenSize] = useState<boolean>(true);
+    //dynamically storing the position of the icons container
     const [postions, setPositions] = useState({x: 0, y: 0});
     const ref = useRef<HTMLDivElement>(null);
-  
-    useEffect(() =>{
-      const resize = () =>{
-        setScreenSize(window.innerWidth > 500);
-      }
-  
-      resize();
-      window.addEventListener("resize", resize);
-  
-      return () => window.removeEventListener("resize", resize);
-    }, [])
 
+    //staggering the icons opacity
     const container = {
       hidden: {},
       show: {
@@ -60,9 +51,10 @@ const IconsSection = () => {
         }
       }
     }
+    //animating icons
     const iconAnimations = {
-      hidden: { opacity: 0.3 },
-      show: { opacity: 0.3 }
+      hidden: { opacity: 0 },
+      show: { opacity: 0.5 }
     }
 
     const onMouseOverHandler = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -74,11 +66,10 @@ const IconsSection = () => {
     }
 
     const onTouchHandler = (e: React.TouchEvent<HTMLDivElement>) => {
-      const {clientX, clientY} = e.touches[0];
-      const {top, left, height, width} = ref.current?.getBoundingClientRect()!;
-      const middleX = clientX - (left + width/2);
-      const middleY = clientY - (top + height/2);
-      setPositions({x: middleX/6, y: middleY/6})
+      const {screenX} = e.touches[0];
+      const {left, width} = ref.current?.getBoundingClientRect()!;
+      const middleX = screenX - (left + width);
+      setPositions({x: (middleX)/4, y: 0})
     }
 
   return (
@@ -98,7 +89,7 @@ const IconsSection = () => {
           y: postions.y
         }}
         onMouseMove={onMouseOverHandler}
-        onTouchStartCapture={onTouchHandler}
+        onTouchMove={onTouchHandler}
         onTouchEnd={() => setPositions({x:0, y:0})}
         ref={ref}
         variants={container}
@@ -117,7 +108,6 @@ const IconsSection = () => {
                 key={index+i}
                 whileHover={{opacity: 1}}
                 variants={iconAnimations}
-                viewport={{once: true}}
                 transition={{duration: 0.8}}
                 >
                   <MagneticHover>{icon}</MagneticHover>

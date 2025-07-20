@@ -14,7 +14,7 @@ const WorkWithMe = () => {
 
   return (
     <div className='text-center px-5 bg-black'>
-        <h1 className='font-popin font-extrabold lg:text-8xl md:text-7xl sm:text-6xl text-5xl text-white py-16 opacity-30'>Why work with me?</h1>
+        <h1 className='font-popin font-extrabold lg:text-8xl md:text-7xl sm:text-6xl text-5xl text-white py-16 opacity-30'>Why Work With Me?</h1>
         <div ref={divRef} className="relative max-w-[1600px] mx-auto h-[200vh] pb-50">
             <div
                 className='sticky top-1/4 font-popin font-extrabold lg:text-6xl md:text-5xl sm:text-4xl text-3xl text-white w-full flex flex-col justify-center items-center gap-14'

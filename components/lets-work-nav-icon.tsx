@@ -7,10 +7,13 @@ import useMobile from '@/hooks/use-mobile';
 import MobileNavbar from './mobile-navbar';
 
 export const LetsWorkNavIcon = () => {
-    const ref = useRef<HTMLDivElement>(null);
-    const [position, setPosition] = useState({x:0, y:0});
     const isMobile = useMobile(800);
+    const [position, setPosition] = useState({x:0, y:0});
     const [showNavbar, setShowNavbar] = useState(false);
+    
+    const ref = useRef<HTMLDivElement>(null);
+
+    const link = !isMobile ? '#contact' : '#'
 
     const mouseOverHandler = (e: React.MouseEvent<HTMLDivElement>)=>{
         const {clientX, clientY} = e;
@@ -19,6 +22,17 @@ export const LetsWorkNavIcon = () => {
         const middleY = clientY - (top + height/2);
         setPosition({x: middleX, y: middleY});
     
+    }
+
+    const clickHandler = () =>{
+      if(!isMobile){
+        const contactDiv = document.getElementById("contact");
+        contactDiv?.scrollIntoView();
+        return;
+      }
+
+      setShowNavbar(prev => !prev);
+      
     }
 
     const reset = () =>{
@@ -37,15 +51,14 @@ export const LetsWorkNavIcon = () => {
         >
         
 
-        <Link 
-        href={!isMobile ? '#contact' : ''}
-        onClick={isMobile ? () => setShowNavbar(prev => !prev) : undefined}
+        <div 
+        onClick={clickHandler}
         className='md:text-sm text-[9px] md:size-26 size-18 rounded-full text-wrap flex justify-center items-center font-extrabold text-transparent 
-            shadow-lg text-center bg-white/10 backdrop-blur-sm bg-clip-text bg-linear-to-bl from-violet-500 to-fuchsia-500
-            text-shadow-sm
+            shadow-lg text-center bg-white/10 backdrop-blur-sm bg-clip-text bg-linear-to-bl from-violet-500 to-fuchsia-500 
+            text-shadow-sm cursor-pointer
             '>
             Lets Work together
-        </Link>
+        </div>
         </motion.div>
         {showNavbar && <MobileNavbar />}
     </>

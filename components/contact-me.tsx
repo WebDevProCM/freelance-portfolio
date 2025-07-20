@@ -8,9 +8,9 @@ import { TbBrandFiverr } from "react-icons/tb";
 
 const ContactMe = () => {
   return (
-    <div className='mx-auto max-w-[1600px] text-center md:mt-[200px] mt-[100px] lg:px-12 md:px-5 px-1' id="contact">
+    <div className='mx-auto max-w-[1600px] text-center md:mt-[200px] mt-[100px] lg:px-12 md:px-5 px-2' id="contact">
 
-        <h1 className='max-w-[600px] mx-auto md:text-5xl text-4xl font-popin font-extrabold text-black'>
+        <h1 className='max-w-[600px] mx-auto md:text-5xl text-3xl font-popin font-extrabold text-black'>
             Do you have a 
             <span className="dark:text-page-purple text-page-purple"> job opportunity </span>
             or want to take your dreamed website to the
@@ -18,7 +18,7 @@ const ContactMe = () => {
         </h1>
 
         <motion.p 
-            className='mt-[40px] mx-auto font-popin font-bold text-xl text-black max-w-[900px]'
+            className='mt-[40px] mx-auto font-popin font-bold sm:text-xl text-lg text-black max-w-[900px]'
             initial={{opacity: 0}}
             whileInView={{opacity: 1}}
             viewport={{once: true}}

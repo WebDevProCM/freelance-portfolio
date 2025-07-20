@@ -52,7 +52,7 @@ const itemMain = {
 
 const LoadingAnimation = ({ setLoading } : {setLoading:Dispatch<SetStateAction<boolean>>}) => {
   return (
-    <motion.div className="overflow-hidden h-screen max-w-[1600px] w-full mx-auto">
+    <motion.div className="overflow-hidden h-screen w-screen max-w-[1600px] mx-auto">
       <motion.div
         variants={container}
         onAnimationComplete={() => setLoading(false)}
