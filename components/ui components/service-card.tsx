@@ -1,10 +1,17 @@
 import Image from 'next/image'
 import React from 'react'
+import {motion} from "framer-motion"
 
 const ServiceCard = ({img, title, desc}:{img:string, title:string, desc:string}) => {
   return (
-    <div className='flex flex-col items-center justify-center max-w-40 lg:max-w-80 p-4 sm:max-w-72
-      bg-white/20 backdrop-blur-md border border-white/30 shadow-lg rounded-xl'>
+    <motion.div 
+      className='flex flex-col items-center justify-center max-w-40 lg:max-w-80 p-4 sm:max-w-72
+      bg-white/20 backdrop-blur-md border border-white/30 shadow-lg rounded-xl'
+      initial={{opacity: 0, translateY: 100}}
+      whileInView={{opacity: 1, translateY: 0}}
+      transition={{duration: 1}}
+      viewport={{once:true}}
+      >
         <Image 
           className='lg:size-[150px] md:size-[130px] sm:size-[110px] size-[40px]'
           src={`/images/${img}.png`} alt='service-icon' width={150} height={150}/>
@@ -12,7 +19,7 @@ const ServiceCard = ({img, title, desc}:{img:string, title:string, desc:string})
         <p className='sm:text-lg text-[10px] text-shadow-white'>
             {desc}
         </p>
-    </div>
+    </motion.div>
   )
 }
 

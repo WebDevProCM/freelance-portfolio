@@ -35,12 +35,21 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
       layoutId='main-image-1'
       ref={divRef}
     >
-      <h1 className='lg:text-9xl md:text-7xl sm:text-6xl text-5xl font-popin font-extrabold text-shadow-lg shadow-black'>
+
+      <motion.h1 
+        className='lg:text-9xl md:text-7xl sm:text-6xl text-5xl font-popin font-extrabold text-shadow-lg shadow-black'
+        initial={{opacity: 0}}
+        whileInView={{opacity: 1}}
+        transition={{delay: 0.3}}
+        >
         My Services
-      </h1>
+      </motion.h1>
 
       <motion.div
         layout
+        initial={{opacity: 0}}
+        whileInView={{opacity: 1}}
+        transition={{delay: 0.3}}
         className='flex sm:w-full w-[350px] mx-auto sm:justify-around justify-center items-stretch gap-3 flex-wrap sm:mt-16 
           sm:mb:0 my-8'
         style={{
@@ -52,6 +61,7 @@ const MainImage = ({isloading}: {isloading:boolean}) => {
         <ServiceCard img='database' title='Database' desc='I design and manage efficient, scalable databases using MongoDB and MySQL. I ensure your data is stored securely and accessed quickly for optimal performance.'/>
         <ServiceCard img='animation' title='Animations' desc='I bring websites to life with smooth animations using Framer Motion and CSS. From subtle transitions to interactive elements, I create engaging experiences that leave a lasting impression.'/>
       </motion.div>
+
     </motion.div>
     :
     null
